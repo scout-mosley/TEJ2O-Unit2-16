@@ -1,8 +1,19 @@
-/* Copyright (c) 2020 MTHS All rights reserved
+/* Copyright (c) 2025 MTHS All rights reserved
  *
- * Created by: XXX
- * Created on: Sep 2020
- * This program ...
+ * Created by: Scout Mosley
+ * Created on: Oct 2025
+ * This program uses the bluetooth radios
 */
 
-basic.showString('Hello, World!')
+// setup
+let distance = sonar.ping(DigitalPin.P0, DigitalPin.P0, PingUnit.Centimeters)
+radio.setGroup(67)
+basic.showIcon(IconNames.Happy)
+basic.showIcon(IconNames.Happy)
+
+while(true){
+    sonar.ping(DigitalPin.P0, DigitalPin.P0, PingUnit.Centimeters)
+    if (distance < 10) {
+    radio.sendString("TO CLOSE DUDE!")
+    radio.sendNumber(distance)
+}}
